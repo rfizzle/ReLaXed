@@ -1,0 +1,51 @@
+mixin tableofcontents
+    h1.toc-ignore Table of Contents
+    #table-of-contents
+
+mixin ToC(pageMapping)
+    h1.toc-ignore Table of Contents
+    #table-of-contents(data-pages=`${JSON.stringify(pageMapping) || JSON.stringify([])}`)
+
+style.
+    /*#table-of-contents {}*/
+
+    .table-of-contents {
+        list-style-type: none;
+    }
+
+    .table-of-contents-list {
+        list-style-type: none;
+    }
+
+    .table-of-contents-list ul {
+        list-style-type: none;
+    }
+
+    .table-of-contents-item a {
+        color: black;
+        text-decoration: none;
+    }
+
+    .table-of-contents-content {
+        display: flex;
+        flex-direction: row;
+        max-width: 100%;
+        padding: 2px;
+    }
+
+    .table-of-contents-item-number {
+        flex: 0 1 auto;
+    }
+
+    .table-of-contents-item-name {
+        flex: 0 1 auto;
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+
+    .table-of-contents-item-dots {
+        flex-grow:1;
+        height: 1.05em;
+        border-bottom: 1.2pt dotted black;
+        overflow: auto;
+    }
