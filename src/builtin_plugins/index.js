@@ -9,6 +9,7 @@ const scss = require('./scss');
 const katex = require('./katex');
 const currentdate = require('./current-date');
 const toc = require('./toc');
+const apexcharts = require('./apexcharts');
 // THESE ARE PLUGINS THAT CAN BE LOADED VIA CONFIG.PY
 // WE WILL CERTAINLY TAKE OUT MOST OF THEM, AS SEPARATE PLUGINS
 
@@ -31,4 +32,5 @@ exports.defaultPlugins = [
   mermaid,
   scss,
   markdown,
+  apexcharts,
 ];
