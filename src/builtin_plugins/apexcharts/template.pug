@@ -9,8 +9,6 @@ script.
 
   const ctx = document.getElementById("myChart");
   const myChart = new ApexCharts(ctx, config);
-  myChart.render()
-  myChart.dataURI().then(() => {
+  myChart.render().then(() => {
     window.svgData = myChart.paper().svg();
-  });
-
+  })
