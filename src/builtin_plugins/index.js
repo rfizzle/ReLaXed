@@ -10,6 +10,7 @@ const katex = require('./katex');
 const currentdate = require('./current-date');
 const toc = require('./toc');
 const apexcharts = require('./apexcharts');
+const svggauge = require('./svggauge');
 // THESE ARE PLUGINS THAT CAN BE LOADED VIA CONFIG.PY
 // WE WILL CERTAINLY TAKE OUT MOST OF THEM, AS SEPARATE PLUGINS
 
@@ -33,4 +34,5 @@ exports.defaultPlugins = [
   scss,
   markdown,
   apexcharts,
+  svggauge,
 ];

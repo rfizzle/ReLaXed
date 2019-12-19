@@ -1,0 +1,19 @@
+script(src='https://rawgit.com/naikus/svg-gauge/master/dist/gauge.min.js')
+
+div.gauge-container#myGauge
+script.
+  window.svgData = false
+  var config = !{gaugeSpec};
+
+  var ctx = document.getElementById("myGauge");
+  var myGauge = Gauge(ctx, config)
+
+  document.getElementsByClassName('gauge')[0].setAttribute("xmlns:svgjs", "http://svgjs.com/svgjs")
+  document.getElementsByClassName('gauge')[0].setAttribute("xmlns:xlink", "http://www.w3.org/1999/xlink")
+  document.getElementsByClassName('gauge')[0].setAttribute("version", "1.1")
+  document.getElementsByClassName('gauge')[0].setAttribute("xmlns", "http://www.w3.org/2000/svg")
+
+  window.svgData = document.getElementsByClassName('gauge')[0].outerHTML
+
+
+
