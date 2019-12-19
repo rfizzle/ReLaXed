@@ -3,7 +3,11 @@ function validate(params) {
 }
 
 function render(tokens, idx) {
-  return (`<div style="page-break-before:always" />`);
+  if (tokens[idx].nesting === 1) {
+    return (`<div style="page-break-before:always" />'`);
+  } else {
+    return "";
+  }
 }
 
 function marker() {

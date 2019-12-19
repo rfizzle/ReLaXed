@@ -3,7 +3,11 @@ function validate(params) {
 }
 
 function render(tokens, idx) {
-  return (`<br />`);
+  if (tokens[idx].nesting === 1) {
+    return (`<br />`);
+  } else {
+    return "";
+  }
 }
 
 function marker() {

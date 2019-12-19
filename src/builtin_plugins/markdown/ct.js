@@ -5,31 +5,37 @@ function validate(params) {
 }
 
 function render(tokens, idx) {
-  let params = tokens[idx].info.trim().match(/([a-zA-Z0-9]*="([^"\n}{]+)"*)/g);
-  let options = {};
-  let optionKeys = ['name', 'age'];
+  if (tokens[idx].nesting === 1) {
+    let params = tokens[idx].info.trim().match(/([a-zA-Z0-9]*="([^"\n}{]+)"*)/g);
+    let options = {};
+    let optionKeys = ['name', 'age'];
 
-  if (params === null) {
-    return;
-  }
+    if (params === null) {
+      return;
+    }
 
-  for (p of params) {
-    let pArr = p.split("=");
-    let k = pArr[0].toLowerCase();
-    let v = pArr[1].substring(1, pArr[1].length-1);
-    if (optionKeys.includes(k)) { options[k] = v }
-  }
+    for (p of params) {
+      let pArr = p.split("=");
+      let k = pArr[0].toLowerCase();
+      let v = pArr[1].substring(1, pArr[1].length - 1);
+      if (optionKeys.includes(k)) {
+        options[k] = v
+      }
+    }
 
-  return (
-    `<div>
-        <div class="name">
-          ${md.utils.escapeHtml(options['name'])}
-        </div>
-        <div class="age">
-          ${md.utils.escapeHtml(options['age'])}
-        </div>
-      </div>
+    return (
+      `<div>
+         <div class="name">
+           ${md.utils.escapeHtml(options['name'])}
+         </div>
+         <div class="age">
+           ${md.utils.escapeHtml(options['age'])}
+         </div>
+       </div>
     `);
+  } else {
+    return "";
+  }
 }
 
 function marker() {
