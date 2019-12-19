@@ -4,7 +4,9 @@ function validate(params) {
 
 function render(tokens, idx) {
   if (tokens[idx].nesting === 1) {
-    return (`<div style="page-break-before:always" />'`);
+    return (`<div style="page-break-before:always">`);
+  } else if (idx === (tokens.length - 1)) {
+    return (`</div>`);
   } else {
     return "";
   }
