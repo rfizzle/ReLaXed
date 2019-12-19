@@ -1,14 +1,28 @@
 script(src='https://cdn.jsdelivr.net/npm/apexcharts')
+script(src='https://cdn.jsdelivr.net/npm/moment')
 
 div#myChart
 script.
-  window.pngData = false
-  let config = !{chartSpec};
+  window.svgData = false
+  window.svgDataError = false
+  var config = !{chartSpec};
 
   config.chart.animations = {enabled: false}
 
-  const ctx = document.getElementById("myChart");
-  const myChart = new ApexCharts(ctx, config);
-  myChart.render().then(() => {
+  var ctx = document.getElementById("myChart");
+  var myChart = new ApexCharts(ctx, config);
+
+  function successSetData(result) {
     window.svgData = myChart.paper().svg();
-  })
+  }
+
+  function failSetData(error) {
+    window.svgDataError = error.message;
+  }
+
+  myChart.render().then(() => {
+    myChart.dataURI().then(successSetData, failSetData)
+
+  }).catch(failSetData);
+
+
