@@ -1,4 +1,5 @@
 const ct = require('./ct');
+const pagebreak = require('./pagebreak');
 
 var hljs = require('highlight.js'); // https://highlightjs.org/
 
@@ -30,6 +31,7 @@ function MarkdownPugFilter(text, options) {
         tabindex: false,
         link: false
       })
-      .use(require('markdown-it-container'), 'ct', {validate: ct.validate, render: ct.render});
+      .use(require('markdown-it-container'), 'ct', {validate: ct.validate, render: ct.render})
+      .use(require('markdown-it-container'), 'pagebreak', {validate: pagebreak.validate, render: pagebreak.render});
   return md.render(text)
 }
