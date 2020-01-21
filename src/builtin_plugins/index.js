@@ -18,7 +18,8 @@ exports.plugins = {
   mathjax,
   katex,
   currentdate,
-  toc
+  toc,
+  markdown
 };
 
 // THESE ARE PLUGINS ADDING NO OVERHEAD, SO SAFE TO BE USED BY DEFAULT
